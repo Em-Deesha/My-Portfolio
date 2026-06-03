@@ -330,39 +330,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add loading animation
     window.addEventListener('load', function () {
         document.body.classList.add('loaded');
-
-        // Animate hero elements with delays
-        setTimeout(() => {
-            document.querySelector('.hero-greeting').style.opacity = '1';
-            document.querySelector('.hero-greeting').style.transform = 'translateY(0)';
-        }, 300);
-
-        setTimeout(() => {
-            document.querySelector('.hero-name').style.opacity = '1';
-            document.querySelector('.hero-name').style.transform = 'translateY(0)';
-        }, 600);
-
-        setTimeout(() => {
-            document.querySelector('.hero-description').style.opacity = '1';
-            document.querySelector('.hero-description').style.transform = 'translateY(0)';
-        }, 900);
-
-        setTimeout(() => {
-            document.querySelector('.hero-buttons').style.opacity = '1';
-            document.querySelector('.hero-buttons').style.transform = 'translateY(0)';
-        }, 1200);
+        // Removed loading animations that were hiding content
     });
 
-    // Add initial styles for loading animation
-    const heroElements = ['.hero-greeting', '.hero-name', '.hero-description', '.hero-buttons'];
-    heroElements.forEach(selector => {
-        const element = document.querySelector(selector);
-        if (element) {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'all 0.8s ease';
-        }
-    });
+    // Remove problematic initial styles that hide content
+    // Removed the code that was setting opacity to 0
 });
 
 // Add some interactive particles to hero section

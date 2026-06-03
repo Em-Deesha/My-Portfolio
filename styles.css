@@ -525,20 +525,33 @@ body {
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes counterRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
 }
 
 @keyframes coreGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         border-color: rgba(15, 240, 252, 0.6);
         box-shadow: 0 0 20px rgba(15, 240, 252, 0.3);
     }
+
     50% {
         border-color: rgba(15, 240, 252, 0.9);
         box-shadow: 0 0 40px rgba(15, 240, 252, 0.6);
@@ -546,8 +559,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.7; }
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
 }
 
 /* Hero Particles */
@@ -658,7 +678,7 @@ body {
 }
 
 .stat-item span {
-    color: #666;
+    color: #b1b1b1;
     font-weight: 500;
 }
 
@@ -679,12 +699,57 @@ body {
 }
 
 .skill-tag {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    animation: skillTagPulse 4s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 0 25px rgba(102, 126, 234, 0.7) !important;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+}
+
+.skill-tag:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes skillTagPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(102, 126, 234, 0.8);
+        transform: scale(1.02);
+    }
 }
 
 /* Experience Section */
@@ -989,13 +1054,79 @@ body {
 }
 
 .project-tag {
-    background: #f8f9fa;
-    color: #667eea;
+    background: linear-gradient(135deg, #0ff0fc 0%, #a855f7 100%) !important;
+    color: white !important;
     padding: 0.3rem 0.8rem;
-    border-radius: 15px;
+    border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
-    border: 1px solid #e9ecef;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 0 15px rgba(15, 240, 252, 0.4) !important;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    animation: projectTagPulse 3.5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-tag::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.project-tag:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 0 25px rgba(15, 240, 252, 0.8) !important;
+    background: linear-gradient(135deg, #a855f7 0%, #0ff0fc 100%) !important;
+}
+
+.project-tag:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.project-tag:nth-child(2n) {
+    background: linear-gradient(135deg, #a855f7 0%, #667eea 100%) !important;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4) !important;
+    animation-delay: 0.5s;
+}
+
+.project-tag:nth-child(2n):hover {
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.8) !important;
+    background: linear-gradient(135deg, #667eea 0%, #a855f7 100%) !important;
+}
+
+.project-tag:nth-child(3n) {
+    background: linear-gradient(135deg, #667eea 0%, #0ff0fc 100%) !important;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.4) !important;
+    animation-delay: 1s;
+}
+
+.project-tag:nth-child(3n):hover {
+    box-shadow: 0 0 25px rgba(102, 126, 234, 0.8) !important;
+    background: linear-gradient(135deg, #0ff0fc 0%, #667eea 100%) !important;
+}
+
+@keyframes projectTagPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(15, 240, 252, 0.4);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(15, 240, 252, 0.7);
+        transform: scale(1.02);
+    }
 }
 
 /* Contact Section */
@@ -1297,6 +1428,18 @@ body {
         height: 50px;
     }
 
+    .about-text {
+        text-align: center !important;
+    }
+
+    .about-text h3 {
+        text-align: center !important;
+    }
+
+    .about-text p {
+        text-align: center !important;
+    }
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
@@ -1360,6 +1503,18 @@ body {
     .hero-description {
         font-size: 1rem;
         padding: 0 20px;
+    }
+
+    .about-text {
+        text-align: center !important;
+    }
+
+    .about-text h3 {
+        text-align: center !important;
+    }
+
+    .about-text p {
+        text-align: center !important;
     }
 
     .container {
@@ -1534,6 +1689,7 @@ body {
     from {
         box-shadow: 0 0 20px rgba(15, 240, 252, 0.4);
     }
+
     to {
         box-shadow: 0 0 30px rgba(15, 240, 252, 0.8);
     }
@@ -1543,6 +1699,7 @@ body {
     from {
         box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
     }
+
     to {
         box-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
     }
@@ -2172,22 +2329,6 @@ body {
 .achievement-date {
     color: #0ff0fc !important;
     text-shadow: 0 0 8px rgba(15, 240, 252, 0.5) !important;
-}
-
-/* Tags and Labels */
-.project-tag,
-.skill-tag {
-    background: rgba(52, 159, 247, 0.98) !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(15, 240, 252, 0.4) !important;
-    box-shadow: 0 0 10px rgba(15, 240, 252, 0.3) !important;
-}
-
-.project-tag:hover,
-.skill-tag:hover {
-    background: rgba(168, 85, 247, 0.2) !important;
-    color: #b36df5 !important;
-    border-color: rgba(168, 85, 247, 0.4) !important;
 }
 
 /* Social Links */
